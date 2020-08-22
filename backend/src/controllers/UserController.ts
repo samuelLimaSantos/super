@@ -7,11 +7,12 @@ interface UserData {
   id: number;
   email: string;
   password: string;
+  category: string;
 }
 
 class UserController {
   async createUser(request: Request, response: Response) {
-    const { name, email, password } = request.body;
+    const { name, email, password, category } = request.body;
 
     const isEmailAlreadyRegistered: number[] = await db('users')
       .select('users.*')
@@ -29,6 +30,7 @@ class UserController {
         name,
         email,
         password: cryptoHash,
+        category,
       });
       return response.status(201).json({ idUser, email });
     } catch (err) {
@@ -64,7 +66,7 @@ class UserController {
       }
     );
 
-    return response.json(token);
+    return response.json({ token, category: userData[0].category });
   }
 }
 
