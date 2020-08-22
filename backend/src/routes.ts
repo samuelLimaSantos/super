@@ -3,6 +3,7 @@ import ProductController from './controllers/ProductController';
 import ProductMiddleware from './middlewares/ProductMiddleware';
 import UserController from './controllers/UserController';
 import loginSection from './middlewares/LoginMiddleware';
+import isSalesman from './middlewares/SalesmanMiddleware';
 
 const routes = Router();
 const productController = new ProductController();
@@ -18,6 +19,7 @@ routes.post('/users/login', userController.loginUser);
 routes.post(
   '/products',
   loginSection,
+  isSalesman,
   productMiddleware.isFieldEmpty,
   productController.create
 );

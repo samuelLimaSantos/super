@@ -3,12 +3,14 @@ import db from '../database/connections';
 
 class ProductController {
   async create(request: Request, response: Response) {
-    const { name, value, amount } = request.body;
+    const { title, value, amount } = request.body;
+    const { user_id } = request;
 
     const productId = await db('products').insert({
-      name,
+      title,
       value,
       amount,
+      user_id,
     });
 
     const product = await db('products')
@@ -19,7 +21,10 @@ class ProductController {
   }
 
   async index(request: Request, response: Response) {
-    const products = await db('products').select('products.*');
+    const products = await db('products')
+      .select('products.*')
+      .join('users', 'products.user_id', '=', 'users.id')
+      .select(['products.*', 'users.name', 'users.email', 'users.category']);
 
     return response.json(products);
   }
@@ -48,7 +53,9 @@ class ProductController {
 
     const product = await db('products')
       .select('products.*')
-      .where('products.id', '=', id);
+      .where('products.id', '=', id)
+      .join('users', 'products.user_id', '=', 'users.id')
+      .select(['products.*', 'users.name', 'users.email', 'users.category']);
 
     return response.status(201).json(product);
   }
@@ -61,8 +68,10 @@ class ProductController {
 
     const product = await db('products')
       .select('products.*')
-      .where('products.name', 'like', `%${title}%`)
-      .andWhere('products.value', '<=', Number(price));
+      .where('products.title', 'like', `%${title}%`)
+      .andWhere('products.value', '<=', Number(price))
+      .join('users', 'products.user_id', '=', 'users.id')
+      .select(['products.*', 'users.name', 'users.email', 'users.category']);
 
     return response.json(product);
   }
