@@ -25,13 +25,13 @@ Na página de registro o usuário pode criar uma nova conta e selecionar entre a
 
 \*Produtos
 
-![productsPrint](./src/assets/productsPrint.PNG)
+![productsPrint](./src/assets/productsPrint.png)
 
 Na página de produtos podemos ver todos os produtos cadastrados na plataforma após o login.
 
 - Novo produto
 
-![newProductPrint](./src/assets/newProductPrint.PNG)
+![newProductPrint](./src/assets/newProductPrint.png)
 
 Na página de novo produtos está presente o relatório para cadastrar novos produtos.
 
