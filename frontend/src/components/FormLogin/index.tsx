@@ -11,11 +11,16 @@ interface FormLoginProps {
 const FormLogin: React.FC<FormLoginProps> = ({ setHasCount }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { authenticated, handleLogin } = useContext(Context);
+  const { handleLogin } = useContext(Context);
   const history = useHistory();
 
   async function handleLoginEvent(event: FormEvent) {
     event.preventDefault();
+
+    if (email === '' || password === '') {
+      return alert('Preencha todos os campos');
+    }
+
     const data = await api.post('/users/login', {
       email,
       password,

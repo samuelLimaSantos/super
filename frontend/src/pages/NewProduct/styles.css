@@ -1,0 +1,101 @@
+.container-new-product {
+  background-color: var(--background);
+  border-radius: 16px;
+}
+
+.content-new-product {
+  width: 80%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.content-new-product form fieldset {
+  border-right: none;
+  border-left: none;
+}
+
+.content-new-product form fieldset legend {
+  font-size: 24pt;
+  margin-bottom: 36px;
+}
+
+.content-new-product form fieldset .field-new-product {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+.content-new-product form fieldset .field-new-product input {
+  width: 50%;
+  height: 30px;
+  border: none;
+  background-color: var(--background);
+  border-bottom: 2px solid var(--primary);
+  outline: none;
+  font-size: 12pt;
+}
+
+.content-new-product form fieldset .fieldNumber-new-product {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.content-new-product form fieldset .fieldNumber-new-product input {
+  height: 30px;
+  border: none;
+  background-color: var(--background);
+  border-bottom: 2px solid var(--primary);
+  outline: none;
+  font-size: 12pt;
+  width: 100px;
+}
+
+.container-button {
+  display: flex;
+  justify-content: center;
+}
+
+.content-new-product form button {
+  margin-top: 40px;
+  width: 30%;
+  padding: 10px 0 10px 0;
+  border: none;
+  background: var(--buttons);
+  color: var(--background);
+  font-size: 0.8rem;
+  font-weight: bold;
+  outline: none;
+  cursor: pointer;
+  transition: opacity 0.7s;
+}
+
+.content-new-product form button:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 600px) {
+  .content-new-product form fieldset legend {
+    font-size: 18pt;
+    margin-bottom: 20px;
+  }
+  .content-new-product form fieldset .field-new-product input {
+    width: 100%;
+  }
+
+  .content-new-product form fieldset .field-new-product label,
+  .content-new-product form fieldset .fieldNumber-new-product label {
+    font-size: 12pt;
+  }
+
+  .content-new-product form fieldset .fieldNumber-new-product span {
+    font-size: 12pt;
+  }
+
+  .content-new-product form fieldset .fieldNumber-new-product {
+    flex-direction: column;
+    justify-content: center;
+  }
+}

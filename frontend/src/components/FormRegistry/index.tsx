@@ -2,6 +2,7 @@ import React, { useState, FormEvent, SetStateAction, Dispatch } from 'react';
 import api from '../../services/api';
 import consumerIcon from '../../assets/iconConsumer.svg';
 import salesmanIcon from '../../assets/IconSalesman.svg';
+import Success from '../Success';
 
 interface FormRegistryProps {
   setHasCount: Dispatch<SetStateAction<boolean>>;
@@ -12,9 +13,14 @@ const FormRegistry: React.FC<FormRegistryProps> = ({ setHasCount }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [category, setCategory] = useState('');
+  const [isSuccess, setIsSuccess] = useState(false);
 
   async function handleRegistry(event: FormEvent) {
     event.preventDefault();
+
+    if (name === '' || email === '' || category === '') {
+      return alert('Preencha todos os campos!');
+    }
 
     const data = await api.post('/users/register', {
       name,
@@ -26,8 +32,11 @@ const FormRegistry: React.FC<FormRegistryProps> = ({ setHasCount }) => {
     if (data.data.error) {
       alert(data.data.error);
     } else if (data.status === 201) {
-      alert('Conta criada com sucesso');
-      setHasCount(true);
+      setIsSuccess(true);
+      setTimeout(() => {
+        setIsSuccess(false);
+        setHasCount(true);
+      }, 1500);
     } else {
       alert('Erro');
     }
@@ -35,6 +44,7 @@ const FormRegistry: React.FC<FormRegistryProps> = ({ setHasCount }) => {
 
   return (
     <form className="registry">
+      {isSuccess && <Success title="Conta criada com sucesso!" />}
       <fieldset>
         <legend>Registro</legend>
         <div className="field">
@@ -77,27 +87,25 @@ const FormRegistry: React.FC<FormRegistryProps> = ({ setHasCount }) => {
           <label>
             <div className="category" id="consumer">
               <img src={consumerIcon} alt="Icon consumidor" />
-              Consumidor
+              Freguês
               <input
                 type="radio"
-                name="react-tips"
+                name="category"
                 value="consumer"
-                checked={true}
-                onSelect={() => {}}
-                className="form-check-input"
                 onChange={({ target }) => {
                   setCategory(target.value);
                 }}
+                className="form-check-input"
               />
             </div>
           </label>
           <label>
             <div className="category" id="salesman">
               <img src={salesmanIcon} alt="Icon Feirante" />
-              Feirante
+              Comerciante
               <input
                 type="radio"
-                name="react-tips"
+                name="category"
                 value="salesman"
                 onChange={({ target }) => {
                   setCategory(target.value);

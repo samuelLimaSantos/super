@@ -11,7 +11,7 @@ class SalesmanMiddleware {
       .andWhere('users.category', '=', 'salesman');
 
     if (isSalesman.length < 1) {
-      return response.status(401).json({ error: 'error' });
+      return response.json({ error: 'Invalid Email' });
     }
 
     request.user_id = isSalesman[0].id;

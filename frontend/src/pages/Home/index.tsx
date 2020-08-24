@@ -16,21 +16,21 @@ const Home: React.FC = () => {
 
   return (
     <div className="home">
-      <Header aboutUs={handleShowAboutUs} />
+      <Header aboutUs={handleShowAboutUs} secondLabel={'Entrar'} />
       <div className="container-home">
         <section>
           <div>
-            <h1>A feira ao seu alcance</h1>
-            <Link to="/login">Sign In</Link>
+            <h1>Seu marketplace de frutas e verduras</h1>
+            <Link to="/login">Conheça</Link>
           </div>
           {isAboutUsSelected && (
             <div className="about-us-description">
               <span></span>
               <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio
-                magni quaerat possimus inventore earum sunt ratione quae maiores
-                ea minima. Odio provident repellat eligendi laudantium voluptas,
-                nostrum mollitia totam sunt?
+                A Xepa&#169; surgiu com o objetivo de unir comerciantes de feira
+                com os seus consumidores. Somos um marketplace focado no bem
+                estar e saúde de toda a comunidade. Desenvolvido po Samuel
+                Santos para o processo seletivo de estágio da Inhalt Soluções.
               </p>
             </div>
           )}

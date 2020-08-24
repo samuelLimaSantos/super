@@ -6,12 +6,14 @@ const Context = createContext({
   authenticated: false,
   handleLogin(token: string, category: string) {},
   token: '',
+  category: '',
   handleLogout() {},
 });
 
 const AuthProvider: React.FC = ({ children }) => {
   const [authenticated, setAuthenticated] = useState(false);
   const [token, setToken] = useState('');
+  const [category, setCategory] = useState('');
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -24,6 +26,7 @@ const AuthProvider: React.FC = ({ children }) => {
 
   function handleLogin(token: string, category: string) {
     setToken(token);
+    setCategory(category);
     localStorage.setItem('token', JSON.stringify(token));
     localStorage.setItem('category', JSON.stringify(category));
 
@@ -33,8 +36,10 @@ const AuthProvider: React.FC = ({ children }) => {
 
   function handleLogout() {
     setAuthenticated(false);
-
+    setToken('');
+    setCategory('');
     localStorage.removeItem('token');
+    localStorage.removeItem('category');
     api.defaults.headers.Authorization = undefined;
   }
 
@@ -45,6 +50,7 @@ const AuthProvider: React.FC = ({ children }) => {
         handleLogin,
         token,
         handleLogout,
+        category,
       }}
     >
       {children}

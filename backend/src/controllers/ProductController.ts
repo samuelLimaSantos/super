@@ -3,13 +3,14 @@ import db from '../database/connections';
 
 class ProductController {
   async create(request: Request, response: Response) {
-    const { title, value, amount } = request.body;
+    const { title, value, amount, image } = request.body;
     const { user_id } = request;
 
     const productId = await db('products').insert({
       title,
       value,
       amount,
+      image,
       user_id,
     });
 
@@ -38,9 +39,7 @@ class ProductController {
       .where('products.id', '=', id);
 
     if (quantity > amount) {
-      return response
-        .status(400)
-        .json({ error: 'This product does not have stock' });
+      return response.json({ error: 'This product does not have stock' });
     }
 
     const newAmount = amount - quantity;
@@ -66,12 +65,16 @@ class ProductController {
     const title = filters.title as string;
     const price = filters.price as string;
 
+    console.log(title, price);
+
     const product = await db('products')
       .select('products.*')
       .where('products.title', 'like', `%${title}%`)
       .andWhere('products.value', '<=', Number(price))
       .join('users', 'products.user_id', '=', 'users.id')
       .select(['products.*', 'users.name', 'users.email', 'users.category']);
+
+    console.log(product);
 
     return response.json(product);
   }

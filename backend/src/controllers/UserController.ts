@@ -14,14 +14,16 @@ class UserController {
   async createUser(request: Request, response: Response) {
     const { name, email, password, category } = request.body;
 
+    if (email === '' || password === '' || category === '') {
+      return response.json({ error: 'Any field are missing!' });
+    }
+
     const isEmailAlreadyRegistered: number[] = await db('users')
       .select('users.*')
       .where('users.email', '=', email);
 
     if (isEmailAlreadyRegistered.length > 0) {
-      return response
-        .status(401)
-        .json({ error: 'Email is already registered' });
+      return response.json({ error: 'Email is already registered' });
     }
 
     try {
@@ -46,13 +48,13 @@ class UserController {
       .where('users.email', '=', email);
 
     if (userData.length < 1) {
-      return response.status(401).json({ error: 'Email is not registered' });
+      return response.json({ error: 'Email is not registered' });
     }
 
     const isPasswordOk = await bcrypt.compare(password, userData[0].password);
 
     if (isPasswordOk === false) {
-      return response.status(401).json({ error: 'Invalid Password' });
+      return response.json({ error: 'Invalid Password' });
     }
 
     const token = jwt.sign(
