@@ -1,0 +1,17 @@
+.header-login {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-login .back {
+  display: flex;
+  text-decoration: none;
+  color: var(--text);
+  font-size: 14pt;
+  align-items: center;
+}
+
+.header-login .logodark {
+  margin-top: -20px;
+}
