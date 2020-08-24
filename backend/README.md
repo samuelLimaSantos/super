@@ -2,18 +2,18 @@
 
 O back-end da aplicação tinha como objetivo atender os seguintes objetivos:
 
-[x] - Realizar login
-[x] - Listar os produtos cadastrados
-[x] - Cadastrar novos produtos com nome, valor e quantidade em estoque
-[x] - Realizar uma venda, o qual consiste em selecionar o produto e a quantidade vendida, o que deverá ser contabilizado no estoque.
-[x] - Possibilidade de filtrar produtos cadastrados
+- [x] - Realizar login
+- [x] - Listar os produtos cadastrados
+- [x] - Cadastrar novos produtos com nome, valor e quantidade em estoque
+- [x] - Realizar uma venda, o qual consiste em selecionar o produto e a quantidade vendida, o que deverá ser contabilizado no estoque.
+- [x] - Possibilidade de filtrar produtos cadastrados
 
 Além disso, procurei dar o passo adicional e coloquei algumas novas funcionalidade como:
 
-[x] - Cadastrar usuário
-[x] - Categorias para os usuários
-[x] - Validações JWT
-[x] - Utilização de Migrations e Banco de dados
+- [x] - Cadastrar usuário
+- [x] - Categorias para os usuários
+- [x] - Validações JWT
+- [x] - Utilização de Migrations e Banco de dados
 
 ## Rotas e funcionalidade
 
