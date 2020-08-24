@@ -1,44 +1,40 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Front-End
 
-## Available Scripts
+O Front-End da aplicação teve o objetivo de entregar todas as informações entregues pela API de forma bonita e agradável.
 
-In the project directory, you can run:
+## Páginas
 
-### `yarn start`
+- Home
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![homePrint](./src/assets/homePrint.PNG)
+![aboutUsPrint](./src/assets/aboutUsPrint.PNG)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Na página home tentei ser o mais clean possível, apresentando apenas as informações essenciais. Caso o usuário queira saber um pouco mais sobre o projeto, ele pode também selecionar a opção do `Sobre nós`.
 
-### `yarn test`
+- Login
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![loginPrint](./src/assets/loginPrint.PNG)
 
-### `yarn build`
+Na página de Login o usuário pode realizar o login ou selecionar a opção para cadastrar uma nova conta caso ele seja novo na plataforma.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Registrar nova conta
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+![registroLoginPrint](./src/assets/registroLogin.PNG)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Na página de registro o usuário pode criar uma nova conta e selecionar entre as nossas duas categorias: Freguês e Comerciante.
 
-### `yarn eject`
+\*Produtos
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![productsPrint](./src/assets/productsPrint.PNG)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Na página de produtos podemos ver todos os produtos cadastrados na plataforma após o login.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Novo produto
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+![newProductPrint](./src/assets/newProductPrint.PNG)
 
-## Learn More
+Na página de novo produtos está presente o relatório para cadastrar novos produtos.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Observações
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Todos os dados estão consumidos diretamente da api. Todo o gerenciamento de login e autenticação foi feito através do Context Api. Todo o front-end foi desenvolvido com ReactJS e Typescript.
