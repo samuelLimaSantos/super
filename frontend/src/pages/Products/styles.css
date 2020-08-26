@@ -93,6 +93,7 @@
   width: 90%;
   height: 200px;
   border-radius: 6px;
+  object-fit: cover;
 }
 
 .product-content .product .title {
