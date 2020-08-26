@@ -61,7 +61,7 @@ Para mais detalhes do desenvolvimento do back-end e front-end consultar o README
 1. Clone o repositório
 1. Execute o comando `npm install` para instalar todas as dependências nas pastas `backend` e `frontend`. Atentar para executar o comando em cada uma das pastas.
 1. Execute o comando `npm run start` para iniciar o servidor nas pastas `backend` e `frontend`. Atentar para executar o comando em cada uma das pastas.
-1. Abra o navegador no endereço `http://localhost:3333`.
+1. Abra o navegador no endereço `http://localhost:3000`.
 
 Obs: Caso o banco de dados não funcionar executar os seguintes passos:
 
